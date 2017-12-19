@@ -7,6 +7,7 @@ use View;
 use Storage;
 use Illuminate\Database\Eloquent\Collection;
 use FormationLaravel\Repositories\Movies;
+use FormationLaravel\Movie;
 
 
 class MoviesController extends Controller
@@ -27,7 +28,7 @@ class MoviesController extends Controller
     public function detail(Movies $movies, $id) {
         return view('movies.detail')->with(
             'movie', 
-            (new Collection($movies->liste))->where('id', $id)->first()
+            Movie::where('id', $id)->first()
         );
     }
 }

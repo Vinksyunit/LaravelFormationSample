@@ -63,6 +63,10 @@ Route::get('admin/insert', [
     'as' => 'admininsert',
     'uses' => 'AdminController@insert'
 ]);
+Route::get('admin/update/{id}', [
+    'as' => 'adminupdate',
+    'uses' => 'AdminController@update'
+]);
 Route::post('admin/valid', [
     'as' => 'adminvalid',
     'before' => 'csrf',

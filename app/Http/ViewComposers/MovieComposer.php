@@ -3,19 +3,18 @@
 namespace FormationLaravel\Http\ViewComposers;
 
 use FormationLaravel\Repositories\Movies;
+use FormationLaravel\Movie;
 use Illuminate\View\View;
 
 class MovieComposer {
-    protected $movies;
 
-    public function __construct(Movies $movies)
+    public function __construct()
     {
         // Dependencies automatically resolved by service container...
-        $this->movies = $movies;
     }
 
     public function compose(View $view) {
 
-        $view->with('movies', $this->movies->liste);
+        $view->with('movies', Movie::all());
     }
 }
